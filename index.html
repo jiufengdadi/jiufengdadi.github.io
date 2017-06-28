@@ -19,6 +19,13 @@ body{height:100%;margin:0px;padding:0px}
         map.addControl(new BMap.OverviewMapControl());    
         map.addControl(new BMap.MapTypeControl());    
         map.setCurrentCity("北京"); // 仅当设置城市信息时，MapTypeControl的切换功能才能可用
+        map.enableScrollWheelZoom();   //启用滚轮放大缩小，默认禁用
+	    map.enableContinuousZoom();    //启用地图惯性拖拽，默认禁用
+        var myDrag = new BMapLib.RectangleZoom(map, {
+            followText: "拖拽鼠标进行操作"
+        });
+        myDrag.open();  //开启拉框放大
+        //myDrag.close();  //关闭拉框放大 
     }  
     
     function loadScript() {  
